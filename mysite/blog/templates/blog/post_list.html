@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <div class="date">
+        {{ post.published_date }}
+      </div>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+
+      <!-- 插入图片显示代码 -->
+      {% if post.image %}
+        <img src="{{ post.image.url }}" class="intruder-image-list" alt="{{ post.title }}">
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endblock %}
